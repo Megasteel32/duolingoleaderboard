@@ -1,4 +1,6 @@
 2024-04-08:[["Luca", 0], ["Ekta", 45736], ["Elias Treadway", 5218], ["Nick HT", 2340], ["Nicolas Salazar", 1440], ["Elliot", 0]]
 2024-04-12:[["Luca", 279], ["Ekta", 45803], ["Elias Treadway", 5218], ["Nick HT", 3948], ["Nicolas Salazar", 1688], ["Elliot", 0]]
 2024-04-13:[["Luca", 297], ["Ekta", 45822], ["Elias Treadway", 5941], ["Nick HT", 3968], ["Nicolas Salazar", 1688], ["Elliot", 0]]
-2024-04-14:[["Luca", 297], ["Ekta", 45852], ["Elias Treadway", 5941], ["Nick HT", 3968], ["Nicolas Salazar", 1688], ["Elliot", 0]]
+2024-04-14:[["Luca", 1484], ["Ekta", 45852], ["Elias Treadway", 6162], ["Nick HT", 4067], ["Nicolas Salazar", 1688], ["Elliot", 0]]
+2024-04-15:[["Luca", 1939], ["Ekta", 45867], ["Elias Treadway", 6175], ["Nick HT", 4412], ["Nicolas Salazar", 1688], ["Elliot", 0]]
+2024-04-16:[["Luca", 1939], ["Ekta", 45882], ["Elias Treadway", 6175], ["Nick HT", 4452], ["Nicolas Salazar", 1688], ["Elliot", 0]]
