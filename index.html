@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+</head>
+<body>
+    <canvas id="myChart"></canvas>
+    <table id="leaderboard">
+        <thead>
+        <tr>
+            <th>User</th>
+            <th>Overall Progress</th>
+            <th>Monthly Progress</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Rows will be added dynamically -->
+        </tbody>
+    </table>
+
+    <script>
+        fetch('user_xp_data.json')
+            .then(response => response.json())
+            .then(data => {
+                const overallProgress = {};
+                const monthlyProgress = {};
+                const ctx = document.getElementById('myChart').getContext('2d');
+                const datasets = [];
+                const users = new Set();
+                const previousXP = {};
+
+                // Define firstDate here
+                const firstDate = Object.keys(data)[0];
+
+                // Get all unique users
+                for (const date in data) {
+                    for (const user of data[date]) {
+                        users.add(user[0]);
+                    }
+                }
+
+                const colors = ['red', 'orange', 'green', 'blue', 'indigo', 'violet'];
+                let colorIndex = 0;
+
+                // Create a dataset for each user
+                for (const user of users) {
+                    datasets.push({
+                        label: user,
+                        data: [],
+                        fill: false,
+                        borderColor: colors[colorIndex], // Assign color from the array
+                        tension: 0.1
+                    });
+                    colorIndex = (colorIndex + 1) % colors.length; // Move to the next color, loop back to the start if necessary
+
+                    // Initialize previous XP for each user with the first day's XP
+                    const firstDate = Object.keys(data)[0];
+                    for (const userXP of data[firstDate]) {
+                        const user = userXP[0];
+                        const xp = userXP[1];
+                        previousXP[user] = xp;
+                    }
+                }
+
+                // Populate the datasets with XP differences
+                for (const date in data) {
+                    for (const userXP of data[date]) {
+                        const user = userXP[0];
+                        const xp = userXP[1];
+                        const dataset = datasets.find(dataset => dataset.label === user);
+                        const xpDifference = xp - previousXP[user]; // Calculate XP difference
+                        dataset.data.push({x: date, y: xpDifference});
+                        previousXP[user] = xp; // Update previous XP
+                    }
+                }
+
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        datasets: datasets
+                    },
+                    options: {
+                        scales: {
+                            x: {
+                                type: 'time',
+                                time: {
+                                    unit: 'day'
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Modify each dataset
+                for (const dataset of datasets) {
+                    dataset.borderWidth = 2; // Change the line width to 2
+                    dataset.pointStyle = 'circle'; // Change the point style to circle
+                    dataset.pointRadius = 5; // Change the point size to 5
+                }
+
+
+                // Update overallProgress and monthlyProgress with the XP values from each subsequent date
+                for (const date in data) {
+                    if (date === firstDate) continue; // Skip the first date
+
+                    const dateObj = new Date(date);
+                    const firstDayOfMonth = new Date(dateObj.getFullYear(), dateObj.getMonth(), 1).toISOString().split('T')[0];
+                    const lastDayOfMonth = new Date(dateObj.getFullYear(), dateObj.getMonth() + 1, 0).toISOString().split('T')[0];
+
+                    for (const userXP of data[date]) {
+                        const user = userXP[0];
+                        const xp = userXP[1];
+                        overallProgress[user] = xp - overallProgress[user]; // Calculate the increase from the first date
+
+                        // If it's the first day of the month, store the XP for each user
+                        if (date === firstDayOfMonth) {
+                            monthlyProgress[user] = xp;
+                        }
+
+                        // If it's the last day of the month, subtract the stored XP from the current XP for each user
+                        if (date === lastDayOfMonth) {
+                            monthlyProgress[user] = xp - monthlyProgress[user];
+                        }
+                    }
+                }
+
+                // Populate the leaderboard table
+                const leaderboard = document.getElementById('leaderboard').getElementsByTagName('tbody')[0];
+
+                for (const user in overallProgress) {
+                    const row = leaderboard.insertRow();
+
+                    const cellUser = row.insertCell();
+                    const cellOverallProgress = row.insertCell();
+                    const cellMonthlyProgress = row.insertCell();
+
+                    cellUser.textContent = user;
+                    cellOverallProgress.textContent = overallProgress[user];
+                    cellMonthlyProgress.textContent = monthlyProgress[user] || 0; // Use 0 as a fallback if monthlyProgress[user] is undefined
+                }
+            });
+    </script>
+</body>
+</html>
