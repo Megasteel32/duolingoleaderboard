@@ -7,18 +7,6 @@
 </head>
 <body>
     <canvas id="myChart"></canvas>
-    <table id="leaderboard">
-        <thead>
-        <tr>
-            <th>User</th>
-            <th>Overall Progress</th>
-            <th>Monthly Progress</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!-- Rows will be added dynamically -->
-        </tbody>
-    </table>
 
     <script>
         fetch('user_xp_data.json')
@@ -126,20 +114,7 @@
                     }
                 }
 
-                // Populate the leaderboard table
-                const leaderboard = document.getElementById('leaderboard').getElementsByTagName('tbody')[0];
 
-                for (const user in overallProgress) {
-                    const row = leaderboard.insertRow();
-
-                    const cellUser = row.insertCell();
-                    const cellOverallProgress = row.insertCell();
-                    const cellMonthlyProgress = row.insertCell();
-
-                    cellUser.textContent = user;
-                    cellOverallProgress.textContent = overallProgress[user];
-                    cellMonthlyProgress.textContent = monthlyProgress[user] || 0; // Use 0 as a fallback if monthlyProgress[user] is undefined
-                }
             });
     </script>
 </body>
