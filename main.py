@@ -5,6 +5,17 @@ import os
 from collections import defaultdict
 import pytz
 
+def convert_to_json(old_file_path, new_file_path):
+    data = {}
+
+    with open(old_file_path, 'r') as old_file:
+        for line in old_file:
+            date, user_xp_data = line.strip().split(':', 1)
+            data[date] = json.loads(user_xp_data)
+
+    with open(new_file_path, 'w') as new_file:
+        json.dump(data, new_file)
+
 def get_total_xp(username):
     url = f"https://www.duolingo.com/2017-06-30/users?username={username}"
     headers = {
@@ -113,3 +124,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
