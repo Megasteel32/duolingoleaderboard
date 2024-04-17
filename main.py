@@ -122,6 +122,8 @@ def main():
         for name, diff in diff_data:
             print(f"{name}: XP Difference = {diff}")
 
+    convert_to_json(file_path, 'user_xp_data.json')
+
 if __name__ == "__main__":
     main()
 
