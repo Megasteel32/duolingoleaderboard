@@ -72,18 +72,23 @@ def add_diffs_retroactively(file_path):
 
     sorted_dates = sorted(data.keys())
 
-    for i in range(1, len(sorted_dates)):
+    for i in range(len(sorted_dates)):
         current_date = sorted_dates[i]
-        previous_date = sorted_dates[i - 1]
 
         current_day_data = data[current_date]
-        previous_day_data = {user_data["name"]: user_data["totalXp"] for user_data in data[previous_date]}
 
-        for user_data in current_day_data:
-            name = user_data["name"]
-            xp = user_data["totalXp"]
-            diff = xp - previous_day_data.get(name, 0)
-            user_data["diff"] = diff
+        if i == 0:  # If it's the first day, set the diff to 0 for all users
+            for user_data in current_day_data:
+                user_data["diff"] = 0
+        else:  # If it's not the first day, calculate the diff as before
+            previous_date = sorted_dates[i - 1]
+            previous_day_data = {user_data["name"]: user_data["totalXp"] for user_data in data[previous_date]}
+
+            for user_data in current_day_data:
+                name = user_data["name"]
+                xp = user_data["totalXp"]
+                diff = xp - previous_day_data.get(name, 0)
+                user_data["diff"] = diff
 
     with open(file_path, 'w') as file:
         json.dump(data, file, indent=2)
