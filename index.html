@@ -70,6 +70,12 @@
                         dataset.data.push({x: date, y: xpDifference});
                     }
                 }
+                // Modify each dataset
+                for (const dataset of datasets) {
+                    dataset.borderWidth = 2;
+                    dataset.pointStyle = 'circle';
+                    dataset.pointRadius = 5;
+                }
 
                 new Chart(ctx, {
                     type: 'line',
@@ -88,12 +94,7 @@
                     }
                 });
 
-                // Modify each dataset
-                for (const dataset of datasets) {
-                    dataset.borderWidth = 2;
-                    dataset.pointStyle = 'circle';
-                    dataset.pointRadius = 5;
-                }
+
 
                 // Get the start and end dates
                 const startDate = Object.keys(data).sort()[0];
