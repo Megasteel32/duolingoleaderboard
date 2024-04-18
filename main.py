@@ -1,10 +1,11 @@
+import calendar
 import requests
 import json
 import datetime
 import os
 from collections import defaultdict
 import pytz
-import re
+
 
 def get_total_xp(username):
     url = f"https://www.duolingo.com/2017-06-30/users?username={username}"
@@ -113,10 +114,15 @@ def main():
     update_data(file_path, user_xp_list, previous_day_data)
     print("Data updated for the current day.")
 
-    print("\nCurrent data:")
-    user_xp_list.sort(key=lambda x: x[1], reverse=True)  # Sort user_xp_list based on XP in decreasing order
-    for name, xp in user_xp_list:
-        print(f"{name}: Current XP = {xp}")
+
+    if len(data_by_day) > 1:
+        print("\nTotal difference between the start and end of the data:")
+        start_day_data = {user_data["name"]: user_data["totalXp"] for user_data in data_by_day[0][1]}
+        end_day_data = {user_data["name"]: user_data["totalXp"] for user_data in data_by_day[-1][1]}
+        diff_data = [(name, end_day_data.get(name, 0) - start_day_data.get(name, 0)) for name in end_day_data.keys()]
+        diff_data.sort(key=lambda x: x[1], reverse=True)  # Sort diff_data based on XP difference in decreasing order
+        for name, diff in diff_data:
+            print(f"{name}: XP Difference = {diff}")
 
     # Reload the data after updating it
     data_by_day, data_by_month = load_previous_data(file_path)
@@ -136,11 +142,14 @@ def main():
     for month, month_data in data_by_month.items():
         start_date, start_data = month_data[0]
         end_date, end_data = month_data[-1]
-        print(f"\nMonth: {month[0]}-{month[1]:02d} (Start: {start_date}, End: {end_date})")
-        diff_data = [(user_data["name"], end_data[i]["totalXp"] - start_data[i]["totalXp"]) for i, user_data in enumerate(end_data)]
+        month_name = calendar.month_name[month[1]]  # Get the name of the month
+        print(f"\nMonth: {month_name} {month[0]} (Start: {start_date}, End: {end_date})")
+        diff_data = [(user_data["name"], end_data[i]["totalXp"] - start_data[i]["totalXp"]) for i, user_data in
+                     enumerate(end_data)]
         diff_data.sort(key=lambda x: x[1], reverse=True)  # Sort diff_data based on XP difference in decreasing order
         for name, diff in diff_data:
             print(f"{name}: XP Difference = {diff}")
+
 
 if __name__ == "__main__":
     main()
