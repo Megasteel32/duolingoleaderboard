@@ -1,1 +1,252 @@
-{"2024-04-08": [["Luca", 0], ["Ekta", 45736], ["Elias Treadway", 5218], ["Nick HT", 2340], ["Nicolas Salazar", 1440], ["Elliot", 0]], "2024-04-12": [["Luca", 279], ["Ekta", 45803], ["Elias Treadway", 5218], ["Nick HT", 3948], ["Nicolas Salazar", 1688], ["Elliot", 0]], "2024-04-13": [["Luca", 297], ["Ekta", 45822], ["Elias Treadway", 5941], ["Nick HT", 3968], ["Nicolas Salazar", 1688], ["Elliot", 0]], "2024-04-14": [["Luca", 1484], ["Ekta", 45852], ["Elias Treadway", 6162], ["Nick HT", 4067], ["Nicolas Salazar", 1688], ["Elliot", 0]], "2024-04-15": [["Luca", 1939], ["Ekta", 45867], ["Elias Treadway", 6175], ["Nick HT", 4412], ["Nicolas Salazar", 1688], ["Elliot", 0]], "2024-04-16": [["Luca", 2057], ["Ekta", 45882], ["Elias Treadway", 6203], ["Nick HT", 4452], ["Nicolas Salazar", 1688], ["Elliot", 0]], "2024-04-17": [["Luca", 2143], ["Ekta", 45895], ["Elias Treadway", 6203], ["Nick HT", 4592], ["Nicolas Salazar", 1688], ["Elliot", 0]]}
+{
+  "2024-04-08": [
+    {
+      "name": "Luca",
+      "totalXp": 0
+    },
+    {
+      "name": "Ekta",
+      "totalXp": 45736
+    },
+    {
+      "name": "Elias Treadway",
+      "totalXp": 5218
+    },
+    {
+      "name": "Nick HT",
+      "totalXp": 2340
+    },
+    {
+      "name": "Nicolas Salazar",
+      "totalXp": 1440
+    },
+    {
+      "name": "Elliot",
+      "totalXp": 0
+    }
+  ],
+  "2024-04-12": [
+    {
+      "name": "Luca",
+      "totalXp": 279,
+      "diff": 279
+    },
+    {
+      "name": "Ekta",
+      "totalXp": 45803,
+      "diff": 67
+    },
+    {
+      "name": "Elias Treadway",
+      "totalXp": 5218,
+      "diff": 0
+    },
+    {
+      "name": "Nick HT",
+      "totalXp": 3948,
+      "diff": 1608
+    },
+    {
+      "name": "Nicolas Salazar",
+      "totalXp": 1688,
+      "diff": 248
+    },
+    {
+      "name": "Elliot",
+      "totalXp": 0,
+      "diff": 0
+    }
+  ],
+  "2024-04-13": [
+    {
+      "name": "Luca",
+      "totalXp": 297,
+      "diff": 18
+    },
+    {
+      "name": "Ekta",
+      "totalXp": 45822,
+      "diff": 19
+    },
+    {
+      "name": "Elias Treadway",
+      "totalXp": 5941,
+      "diff": 723
+    },
+    {
+      "name": "Nick HT",
+      "totalXp": 3968,
+      "diff": 20
+    },
+    {
+      "name": "Nicolas Salazar",
+      "totalXp": 1688,
+      "diff": 0
+    },
+    {
+      "name": "Elliot",
+      "totalXp": 0,
+      "diff": 0
+    }
+  ],
+  "2024-04-14": [
+    {
+      "name": "Luca",
+      "totalXp": 1484,
+      "diff": 1187
+    },
+    {
+      "name": "Ekta",
+      "totalXp": 45852,
+      "diff": 30
+    },
+    {
+      "name": "Elias Treadway",
+      "totalXp": 6162,
+      "diff": 221
+    },
+    {
+      "name": "Nick HT",
+      "totalXp": 4067,
+      "diff": 99
+    },
+    {
+      "name": "Nicolas Salazar",
+      "totalXp": 1688,
+      "diff": 0
+    },
+    {
+      "name": "Elliot",
+      "totalXp": 0,
+      "diff": 0
+    }
+  ],
+  "2024-04-15": [
+    {
+      "name": "Luca",
+      "totalXp": 1939,
+      "diff": 455
+    },
+    {
+      "name": "Ekta",
+      "totalXp": 45867,
+      "diff": 15
+    },
+    {
+      "name": "Elias Treadway",
+      "totalXp": 6175,
+      "diff": 13
+    },
+    {
+      "name": "Nick HT",
+      "totalXp": 4412,
+      "diff": 345
+    },
+    {
+      "name": "Nicolas Salazar",
+      "totalXp": 1688,
+      "diff": 0
+    },
+    {
+      "name": "Elliot",
+      "totalXp": 0,
+      "diff": 0
+    }
+  ],
+  "2024-04-16": [
+    {
+      "name": "Luca",
+      "totalXp": 2057,
+      "diff": 118
+    },
+    {
+      "name": "Ekta",
+      "totalXp": 45882,
+      "diff": 15
+    },
+    {
+      "name": "Elias Treadway",
+      "totalXp": 6203,
+      "diff": 28
+    },
+    {
+      "name": "Nick HT",
+      "totalXp": 4452,
+      "diff": 40
+    },
+    {
+      "name": "Nicolas Salazar",
+      "totalXp": 1688,
+      "diff": 0
+    },
+    {
+      "name": "Elliot",
+      "totalXp": 0,
+      "diff": 0
+    }
+  ],
+  "2024-04-17": [
+    {
+      "name": "Luca",
+      "totalXp": 2143,
+      "diff": 86
+    },
+    {
+      "name": "Ekta",
+      "totalXp": 45895,
+      "diff": 13
+    },
+    {
+      "name": "Elias Treadway",
+      "totalXp": 6203,
+      "diff": 0
+    },
+    {
+      "name": "Nick HT",
+      "totalXp": 4592,
+      "diff": 140
+    },
+    {
+      "name": "Nicolas Salazar",
+      "totalXp": 1688,
+      "diff": 0
+    },
+    {
+      "name": "Elliot",
+      "totalXp": 0,
+      "diff": 0
+    }
+  ],
+  "2024-04-18": [
+    {
+      "name": "Luca",
+      "totalXp": 2143,
+      "diff": 0
+    },
+    {
+      "name": "Ekta",
+      "totalXp": 45895,
+      "diff": 0
+    },
+    {
+      "name": "Elias Treadway",
+      "totalXp": 6203,
+      "diff": 0
+    },
+    {
+      "name": "Nick HT",
+      "totalXp": 4592,
+      "diff": 0
+    },
+    {
+      "name": "Nicolas Salazar",
+      "totalXp": 1688,
+      "diff": 0
+    },
+    {
+      "name": "Elliot",
+      "totalXp": 0,
+      "diff": 0
+    }
+  ]
+}
