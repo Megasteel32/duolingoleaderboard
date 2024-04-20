@@ -20,9 +20,22 @@ def get_total_xp(username):
         return None
 
     data = json.loads(response.text)
-    if "users" not in data:
-        print(f"Key 'users' not found in the response data: {data}")
+    if "users" not in data or not data["users"]:
+        print(f"No user data found for username: {username}")
         return None
+
+    user_data = data["users"][0]  # Access the first user dictionary
+    if "totalXp" not in user_data or "name" not in user_data:
+        print(f"Key 'totalXp' or 'name' not found in the user data: {user_data}")
+        return None
+
+    name = user_data["name"]
+    if name == "Bella":
+        name = "Ekta"
+    if name == "Fred":
+        name = "Elliot"
+
+    return name, user_data["totalXp"]
 
     user_data = data["users"][0]  # Access the first user dictionary
     if "totalXp" not in user_data or "name" not in user_data:
@@ -95,7 +108,7 @@ def add_diffs_retroactively(file_path):
         json.dump(data, file, indent=2)
 
 def main():
-    usernames = ["megasteel32", "bella_247", "eliastread", "nickht1", "nicolassalazar1", "fred137179"]  # Replace with your list of usernames
+    usernames = ["megasteel32", "bella_247", "eliastread", "nickht1", "nicolassalazar1", "TheEvilFred"]  # Replace with your list of usernames
     user_xp_list = []
 
     for username in usernames:
