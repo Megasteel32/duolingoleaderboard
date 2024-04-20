@@ -127,6 +127,10 @@ def main():
     update_data(file_path, user_xp_list, previous_day_data)
     print("Data updated for the current day.")
 
+    # Reload the data after updating it
+    data_by_day, data_by_month = load_previous_data(file_path)
+
+    add_diffs_retroactively(file_path)
 
     if len(data_by_day) > 1:
         print("\nTotal difference between the start and end of the data:")
@@ -137,10 +141,7 @@ def main():
         for name, diff in diff_data:
             print(f"{name}: XP Difference = {diff}")
 
-    # Reload the data after updating it
-    data_by_day, data_by_month = load_previous_data(file_path)
 
-    add_diffs_retroactively(file_path)
 
     if len(data_by_day) > 1:
         print("\nDifference between the previous day and today:")
