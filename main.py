@@ -145,8 +145,9 @@ def main():
     if len(data_by_day) > 1:
         print("\nDifference between the previous day and today:")
         previous_day_data = {user_data["name"]: user_data["totalXp"] for user_data in data_by_day[-2][1]}
-        current_day_data = data_by_day[-1][1]
-        diff_data = [(user_data["name"], user_data["diff"]) for user_data in current_day_data]
+        current_day_data = {user_data["name"]: user_data["totalXp"] for user_data in data_by_day[-1][1]}
+        diff_data = [(name, current_day_data.get(name, 0) - previous_day_data.get(name, 0)) for name in
+                     current_day_data.keys()]
         diff_data.sort(key=lambda x: x[1], reverse=True)  # Sort diff_data based on XP difference in decreasing order
         for name, diff in diff_data:
             print(f"{name}: XP Difference = {diff}")
