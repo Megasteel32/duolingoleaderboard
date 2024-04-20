@@ -286,5 +286,37 @@
       "totalXp": 727,
       "diff": 727
     }
+  ],
+  "2024-04-20": [
+    {
+      "name": "Luca",
+      "totalXp": 2634,
+      "diff": 212
+    },
+    {
+      "name": "Ekta",
+      "totalXp": 45933,
+      "diff": 0
+    },
+    {
+      "name": "Elias Treadway",
+      "totalXp": 6203,
+      "diff": 0
+    },
+    {
+      "name": "Nick HT",
+      "totalXp": 4946,
+      "diff": 0
+    },
+    {
+      "name": "Nicolas Salazar",
+      "totalXp": 1688,
+      "diff": 0
+    },
+    {
+      "name": "Elliot",
+      "totalXp": 727,
+      "diff": 0
+    }
   ]
 }
