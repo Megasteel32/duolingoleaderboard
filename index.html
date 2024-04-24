@@ -232,10 +232,15 @@
 
                 // Generate table rows for each day
                 let isFirstDay = true;
+                const currentDate = endDate; // Get the current date from the end date
                 for (const date in data) {
                     if (isFirstDay) {
                         isFirstDay = false;
                         continue; // Skip the first day
+                    }
+
+                    if (date === currentDate) {
+                        continue; // Skip the current day
                     }
 
                     const row = document.createElement('tr');
@@ -247,7 +252,7 @@
                         const userXP = data[date].find(userXP => userXP.name === user);
                         const cell = document.createElement('td');
                         if (userXP) {
-                            cell.textContent = userXP.diff === 0 ? "womp womp" : userXP.diff;
+                            cell.textContent = userXP.diff === 0 ? "whomp whomp" : userXP.diff;
                         } else {
                             cell.textContent = '';
                         }
