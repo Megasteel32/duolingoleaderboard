@@ -4,12 +4,45 @@
     <title>Graph</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            width: 75px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(odd) {
+            background-color: white;
+        }
+    </style>
 </head>
 <body>
     <canvas id="myChart"></canvas>
     <div id="totalDifference"></div>
     <div id="dailyDifference"></div>
     <div id="monthlyDifference"></div>
+    <h2>Data Table:</h2>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
     <script>
         fetch('user_xp_data.json')
             .then(response => response.json())
@@ -70,6 +103,7 @@
                         dataset.data.push({x: date, y: xpDifference});
                     }
                 }
+
                 // Modify each dataset
                 for (const dataset of datasets) {
                     dataset.borderWidth = 2;
@@ -93,12 +127,12 @@
                                     display: true,
                                     text: 'Days',
                                     font: {
-                                        size: 20 // Adjust as needed
+                                        size: 20
                                     }
                                 },
                                 ticks: {
                                     font: {
-                                        size: 15 // Adjust as needed
+                                        size: 15
                                     }
                                 }
                             },
@@ -107,7 +141,7 @@
                                     display: true,
                                     text: 'Points Delta',
                                     font: {
-                                        size: 20 // Adjust as needed
+                                        size: 20
                                     }
                                 }
                             }
@@ -117,21 +151,19 @@
                                 display: true,
                                 text: 'XP Increase by Day',
                                 font: {
-                                    size: 24 // Adjust as needed
+                                    size: 24
                                 }
                             },
                             legend: {
                                 labels: {
                                     font: {
-                                        size: 18 // Adjust as needed
+                                        size: 18
                                     }
                                 }
                             }
                         }
                     }
                 });
-
-
 
                 // Get the start and end dates
                 const startDate = Object.keys(data).sort()[0];
@@ -186,6 +218,44 @@
                 });
 
                 document.getElementById('monthlyDifference').innerHTML = monthlyDifferenceHtml;
+
+                // Generate data table
+                const tableHead = document.querySelector('#dataTable thead tr');
+                const tableBody = document.querySelector('#dataTable tbody');
+
+                // Add table header cells for each user
+                users.forEach(user => {
+                    const th = document.createElement('th');
+                    th.textContent = user;
+                    tableHead.appendChild(th);
+                });
+
+                // Generate table rows for each day
+                let isFirstDay = true;
+                for (const date in data) {
+                    if (isFirstDay) {
+                        isFirstDay = false;
+                        continue; // Skip the first day
+                    }
+
+                    const row = document.createElement('tr');
+                    const dateCell = document.createElement('td');
+                    dateCell.textContent = date;
+                    row.appendChild(dateCell);
+
+                    users.forEach(user => {
+                        const userXP = data[date].find(userXP => userXP.name === user);
+                        const cell = document.createElement('td');
+                        if (userXP) {
+                            cell.textContent = userXP.diff === 0 ? "womp womp" : userXP.diff;
+                        } else {
+                            cell.textContent = '';
+                        }
+                        row.appendChild(cell);
+                    });
+
+                    tableBody.appendChild(row);
+                }
             });
     </script>
 </body>
