@@ -386,33 +386,33 @@
   "2024-04-23": [
     {
       "name": "Luca",
-      "totalXp": 3861,
-      "diff": 343
+      "totalXp": 4362,
+      "diff": 844
     },
     {
       "name": "Ekta",
-      "totalXp": 49327,
-      "diff": 0
+      "totalXp": 49362,
+      "diff": 35
     },
     {
       "name": "Elias Treadway",
-      "totalXp": 6776,
-      "diff": 0
+      "totalXp": 6831,
+      "diff": 55
     },
     {
       "name": "Nick HT",
-      "totalXp": 5002,
-      "diff": 0
+      "totalXp": 5012,
+      "diff": 10
     },
     {
       "name": "Nicolas Salazar",
-      "totalXp": 1688,
-      "diff": 0
+      "totalXp": 1909,
+      "diff": 221
     },
     {
       "name": "Elliot",
-      "totalXp": 2212,
-      "diff": 0
+      "totalXp": 2251,
+      "diff": 39
     }
   ]
 }
