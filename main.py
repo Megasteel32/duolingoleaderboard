@@ -107,10 +107,27 @@ def add_diffs_retroactively(file_path):
     with open(file_path, 'w') as file:
         json.dump(data, file, indent=2)
 
-def main():
-    usernames = ["megasteel32", "bella_247", "eliastread", "nickht1", "nicolassalazar1", "TheEvilFred"]  # Replace with your list of usernames
-    user_xp_list = []
+def fill_missing_data(data):
+    all_names = set()
+    last_xp = {}
+    for date, day_data in sorted(data.items(), key=lambda x: x[0]):
+        for user_data in day_data:
+            name = user_data["name"]
+            all_names.add(name)
+            last_xp[name] = user_data["totalXp"]
 
+    for date, day_data in sorted(data.items(), key=lambda x: x[0]):
+        existing_names = set(user_data["name"] for user_data in day_data)
+        missing_names = all_names - existing_names
+        for name in missing_names:
+            day_data.append({"name": name, "totalXp": last_xp[name], "diff": 0})
+
+    return data
+
+
+def main():
+    usernames = ["megasteel32", "bella_247", "eliastread", "nickht1", "nicolassalazar1", "TheEvilFred", "PuneetBajaj"]  # Replace with your list of usernames
+    user_xp_list = []
     for username in usernames:
         user_info = get_total_xp(username)
         if user_info is not None:
@@ -119,7 +136,6 @@ def main():
     file_path = 'user_xp_data.json'
     data_by_day, data_by_month = load_previous_data(file_path)
     current_date = datetime.datetime.now(pytz.timezone('US/Eastern')).date()
-
     previous_day_data = {}
     if len(data_by_day) > 0:
         previous_day_data = {user_data["name"]: user_data["totalXp"] for user_data in data_by_day[-1][1]}
@@ -129,6 +145,11 @@ def main():
 
     # Reload the data after updating it
     data_by_day, data_by_month = load_previous_data(file_path)
+
+    # Fill in missing data for new users
+    filled_data = fill_missing_data({date.strftime('%Y-%m-%d'): day_data for date, day_data in data_by_day})
+    with open(file_path, 'w') as file:
+        json.dump(filled_data, file, indent=2)
 
     add_diffs_retroactively(file_path)
 
