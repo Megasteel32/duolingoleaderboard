@@ -26,4 +26,9 @@ jobs:
           git config --local user.name "GitHub Action"
           git add user_xp_data.json
           git commit -m "Update data" || echo "No changes to commit"
-          git push
+      - name: Pull changes from remote
+        run: |
+          git pull origin master
+      - name: Push changes
+        run: |
+          git push https://${{ secrets.REPO_ACCESS_TOKEN }}@github.com/Megasteel32/duolingoleaderboard.git
