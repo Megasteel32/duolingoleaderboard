@@ -705,22 +705,133 @@
   "2024-04-30": [
     {
       "name": "Luca",
-      "totalXp": 6556,
-      "diff": 55
+      "totalXp": 7644,
+      "diff": 1143
     },
     {
       "name": "Ekta",
-      "totalXp": 49499,
+      "totalXp": 49524,
+      "diff": 25
+    },
+    {
+      "name": "Elias Treadway",
+      "totalXp": 8253,
+      "diff": 1251
+    },
+    {
+      "name": "Nick HT",
+      "totalXp": 5557,
+      "diff": 10
+    },
+    {
+      "name": "Nicolas Salazar",
+      "totalXp": 2399,
+      "diff": 0
+    },
+    {
+      "name": "Elliot",
+      "totalXp": 7177,
+      "diff": 343
+    },
+    {
+      "name": "Puneet",
+      "totalXp": 12772,
+      "diff": 0
+    }
+  ],
+  "2024-05-01": [
+    {
+      "name": "Luca",
+      "totalXp": 7644,
+      "diff": 0
+    },
+    {
+      "name": "Ekta",
+      "totalXp": 49539,
+      "diff": 15
+    },
+    {
+      "name": "Elias Treadway",
+      "totalXp": 8295,
+      "diff": 42
+    },
+    {
+      "name": "Nick HT",
+      "totalXp": 5589,
+      "diff": 32
+    },
+    {
+      "name": "Nicolas Salazar",
+      "totalXp": 2399,
+      "diff": 0
+    },
+    {
+      "name": "Elliot",
+      "totalXp": 7578,
+      "diff": 401
+    },
+    {
+      "name": "Puneet",
+      "totalXp": 12772,
+      "diff": 0
+    }
+  ],
+  "2024-05-02": [
+    {
+      "name": "Luca",
+      "totalXp": 7659,
+      "diff": 15
+    },
+    {
+      "name": "Ekta",
+      "totalXp": 49554,
+      "diff": 15
+    },
+    {
+      "name": "Elias Treadway",
+      "totalXp": 8295,
+      "diff": 0
+    },
+    {
+      "name": "Nick HT",
+      "totalXp": 5599,
+      "diff": 10
+    },
+    {
+      "name": "Nicolas Salazar",
+      "totalXp": 2399,
+      "diff": 0
+    },
+    {
+      "name": "Elliot",
+      "totalXp": 8359,
+      "diff": 781
+    },
+    {
+      "name": "Puneet",
+      "totalXp": 12772,
+      "diff": 0
+    }
+  ],
+  "2024-05-03": [
+    {
+      "name": "Luca",
+      "totalXp": 7659,
+      "diff": 0
+    },
+    {
+      "name": "Ekta",
+      "totalXp": 49554,
       "diff": 0
     },
     {
       "name": "Elias Treadway",
-      "totalXp": 7911,
-      "diff": 909
+      "totalXp": 8295,
+      "diff": 0
     },
     {
       "name": "Nick HT",
-      "totalXp": 5547,
+      "totalXp": 5599,
       "diff": 0
     },
     {
@@ -730,7 +841,7 @@
     },
     {
       "name": "Elliot",
-      "totalXp": 6834,
+      "totalXp": 8359,
       "diff": 0
     },
     {
