@@ -47,10 +47,15 @@
         fetch('user_xp_data.json')
             .then(response => response.json())
             .then(data => {
+                // Check if data is empty
+                if (Object.keys(data).length === 0) {
+                    console.log("No data available.");
+                    return;
+                }
+
                 const ctx = document.getElementById('myChart').getContext('2d');
                 const datasets = [];
                 const users = new Set();
-
                 const monthNames = {
                     '01': 'January',
                     '02': 'February',
@@ -137,6 +142,7 @@
                                 }
                             },
                             y: {
+                                type: 'linear',
                                 title: {
                                     display: true,
                                     text: 'Points Delta',
@@ -166,8 +172,9 @@
                 });
 
                 // Get the start and end dates
-                const startDate = Object.keys(data).sort()[0];
-                const endDate = Object.keys(data).sort().pop();
+                const dates = Object.keys(data).sort();
+                const startDate = dates[0];
+                const endDate = dates[dates.length - 1];
 
                 // Get the start and end data
                 const startData = data[startDate];
@@ -176,7 +183,6 @@
                 // Generate total difference HTML
                 let totalDifferenceHtml = '<h2>Total XP Difference (Start to End):</h2>';
                 const totalDifferences = [];
-
                 startData.forEach(startUser => {
                     const endUser = endData.find(user => user.name === startUser.name);
                     if (endUser) {
@@ -184,11 +190,9 @@
                         totalDifferences.push({name: startUser.name, diff: xpDifference});
                     }
                 });
-
                 totalDifferences.sort((a, b) => b.diff - a.diff).forEach(user => {
                     totalDifferenceHtml += `<p>${user.name}: XP Difference = ${user.diff}</p>`;
                 });
-
                 document.getElementById('totalDifference').innerHTML = totalDifferenceHtml;
 
                 // Generate daily difference HTML
@@ -200,22 +204,44 @@
 
                 // Generate monthly difference HTML
                 let monthlyDifferenceHtml = '<h2>Difference between the start and end of each month:</h2>';
-                const monthYear = getMonthName(endDate.slice(0, 7)); // Use the end date here
-                monthlyDifferenceHtml += `<h3>Month: ${monthYear} (Start: ${startDate}, End: ${endDate})</h3>`;
 
-                const monthlyDifferences = [];
-
-                startData.forEach(startUser => {
-                    const endUser = endData.find(user => user.name === startUser.name);
-                    if (endUser) {
-                        const xpDifference = endUser.totalXp - startUser.totalXp;
-                        monthlyDifferences.push({name: startUser.name, diff: xpDifference});
+                const monthlyData = {};
+                for (const date in data) {
+                    const monthYear = getMonthName(date.slice(0, 7));
+                    if (!(monthYear in monthlyData)) {
+                        monthlyData[monthYear] = {
+                            startDate: date,
+                            endDate: date,
+                            startData: data[date],
+                            endData: data[date]
+                        };
+                    } else {
+                        monthlyData[monthYear].endDate = date;
+                        monthlyData[monthYear].endData = data[date];
                     }
-                });
+                }
 
-                monthlyDifferences.sort((a, b) => b.diff - a.diff).forEach(user => {
-                    monthlyDifferenceHtml += `<p>${user.name}: XP Difference = ${user.diff}</p>`;
-                });
+                for (const monthYear in monthlyData) {
+                    const startDate = monthlyData[monthYear].startDate;
+                    const endDate = monthlyData[monthYear].endDate;
+                    const startData = monthlyData[monthYear].startData;
+                    const endData = monthlyData[monthYear].endData;
+
+                    monthlyDifferenceHtml += `<h3>Month: ${monthYear} (Start: ${startDate}, End: ${endDate})</h3>`;
+
+                    const monthlyDifferences = [];
+                    startData.forEach(startUser => {
+                        const endUser = endData.find(user => user.name === startUser.name);
+                        if (endUser) {
+                            const xpDifference = endUser.totalXp - startUser.totalXp;
+                            monthlyDifferences.push({name: startUser.name, diff: xpDifference});
+                        }
+                    });
+
+                    monthlyDifferences.sort((a, b) => b.diff - a.diff).forEach(user => {
+                        monthlyDifferenceHtml += `<p>${user.name}: XP Difference = ${user.diff}</p>`;
+                    });
+                }
 
                 document.getElementById('monthlyDifference').innerHTML = monthlyDifferenceHtml;
 
@@ -238,11 +264,9 @@
                         isFirstDay = false;
                         continue; // Skip the first day
                     }
-
                     if (date === currentDate) {
                         continue; // Skip the current day
                     }
-
                     const row = document.createElement('tr');
                     const dateCell = document.createElement('td');
                     dateCell.textContent = date;
@@ -261,6 +285,9 @@
 
                     tableBody.appendChild(row);
                 }
+            })
+            .catch(error => {
+                console.error('Error loading JSON data:', error);
             });
     </script>
 </body>
