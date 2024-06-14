@@ -2369,11 +2369,6 @@
   ],
   "2024-06-14": [
     {
-      "name": "Luca",
-      "totalXp": 10767,
-      "diff": 0
-    },
-    {
       "name": "Ekta",
       "totalXp": 50683,
       "diff": 13
@@ -2401,6 +2396,11 @@
     {
       "name": "Puneet",
       "totalXp": 12772,
+      "diff": 0
+    },
+    {
+      "name": "Luca",
+      "totalXp": 10767,
       "diff": 0
     }
   ]
