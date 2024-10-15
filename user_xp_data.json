@@ -6917,5 +6917,42 @@
       "totalXp": 12901,
       "diff": 0
     }
+  ],
+  "2024-10-15": [
+    {
+      "name": "Luca",
+      "totalXp": 10767,
+      "diff": 0
+    },
+    {
+      "name": "Ekta",
+      "totalXp": 56296,
+      "diff": 0
+    },
+    {
+      "name": "Elias Treadway",
+      "totalXp": 9455,
+      "diff": 0
+    },
+    {
+      "name": "Nick HT",
+      "totalXp": 7995,
+      "diff": 0
+    },
+    {
+      "name": "Nicolas Salazar",
+      "totalXp": 2399,
+      "diff": 0
+    },
+    {
+      "name": "Elliot",
+      "totalXp": 18087,
+      "diff": 0
+    },
+    {
+      "name": "Puneet",
+      "totalXp": 12901,
+      "diff": 0
+    }
   ]
 }
