@@ -7411,11 +7411,6 @@
       "diff": 28
     },
     {
-      "name": "Elias Treadway",
-      "totalXp": 9601,
-      "diff": 0
-    },
-    {
       "name": "Nick HT",
       "totalXp": 8004,
       "diff": 0
@@ -7433,6 +7428,11 @@
     {
       "name": "Puneet",
       "totalXp": 12901,
+      "diff": 0
+    },
+    {
+      "name": "Elias Treadway",
+      "totalXp": 9601,
       "diff": 0
     }
   ]
