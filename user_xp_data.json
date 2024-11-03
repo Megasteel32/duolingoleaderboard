@@ -7623,8 +7623,13 @@
   ],
   "2024-11-03": [
     {
-      "name": "Nicolas Salazar",
-      "totalXp": 2399,
+      "name": "Luca",
+      "totalXp": 10767,
+      "diff": 0
+    },
+    {
+      "name": "Ekta",
+      "totalXp": 57818,
       "diff": 0
     },
     {
@@ -7634,27 +7639,22 @@
     },
     {
       "name": "Nick HT",
-      "totalXp": 9011,
-      "diff": 0
+      "totalXp": 9485,
+      "diff": 474
     },
     {
-      "name": "Puneet",
-      "totalXp": 12901,
-      "diff": 0
-    },
-    {
-      "name": "Ekta",
-      "totalXp": 57818,
+      "name": "Nicolas Salazar",
+      "totalXp": 2399,
       "diff": 0
     },
     {
       "name": "Elliot",
-      "totalXp": 18177,
-      "diff": 0
+      "totalXp": 18191,
+      "diff": 14
     },
     {
-      "name": "Luca",
-      "totalXp": 10767,
+      "name": "Puneet",
+      "totalXp": 12901,
       "diff": 0
     }
   ]
