@@ -8252,23 +8252,18 @@
   ],
   "2024-11-20": [
     {
-      "name": "Elliot",
-      "totalXp": 18340,
-      "diff": 0
-    },
-    {
-      "name": "Elias Treadway",
-      "totalXp": 9926,
+      "name": "Luca",
+      "totalXp": 10767,
       "diff": 0
     },
     {
       "name": "Ekta",
-      "totalXp": 58565,
-      "diff": 0
+      "totalXp": 58600,
+      "diff": 35
     },
     {
-      "name": "Puneet",
-      "totalXp": 12901,
+      "name": "Elias Treadway",
+      "totalXp": 9926,
       "diff": 0
     },
     {
@@ -8282,8 +8277,13 @@
       "diff": 0
     },
     {
-      "name": "Luca",
-      "totalXp": 10767,
+      "name": "Elliot",
+      "totalXp": 18340,
+      "diff": 0
+    },
+    {
+      "name": "Puneet",
+      "totalXp": 12901,
       "diff": 0
     }
   ]
