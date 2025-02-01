@@ -10958,11 +10958,6 @@
       "diff": 0
     },
     {
-      "name": "Ekta",
-      "totalXp": 61476,
-      "diff": 40
-    },
-    {
       "name": "Elias Treadway",
       "totalXp": 11238,
       "diff": 28
@@ -10985,6 +10980,11 @@
     {
       "name": "Puneet",
       "totalXp": 12901,
+      "diff": 0
+    },
+    {
+      "name": "Ekta",
+      "totalXp": 61436,
       "diff": 0
     }
   ]
