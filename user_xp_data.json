@@ -12026,14 +12026,9 @@
   ],
   "2025-03-02": [
     {
-      "name": "Luca",
-      "totalXp": 10792,
+      "name": "Puneet",
+      "totalXp": 12908,
       "diff": 0
-    },
-    {
-      "name": "Elias Treadway",
-      "totalXp": 11856,
-      "diff": 28
     },
     {
       "name": "Nick HT",
@@ -12041,8 +12036,8 @@
       "diff": 0
     },
     {
-      "name": "Nicolas Salazar",
-      "totalXp": 2399,
+      "name": "Luca",
+      "totalXp": 10792,
       "diff": 0
     },
     {
@@ -12051,13 +12046,18 @@
       "diff": 0
     },
     {
-      "name": "Puneet",
-      "totalXp": 12908,
+      "name": "Ekta",
+      "totalXp": 61436,
       "diff": 0
     },
     {
-      "name": "Ekta",
-      "totalXp": 61436,
+      "name": "Nicolas Salazar",
+      "totalXp": 2399,
+      "diff": 0
+    },
+    {
+      "name": "Elias Treadway",
+      "totalXp": 11828,
       "diff": 0
     }
   ]
